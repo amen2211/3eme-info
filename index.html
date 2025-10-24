@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Espace TechLab – 3ème Info</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<style>
+  /* Global */
+* {margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+:root {--dark-bg:#0a192f;--neon-green:#64ffda;--white:#fff;}
+body {background-color:var(--dark-bg);color:var(--white);scroll-behavior:smooth;}
+.navbar {display:flex;justify-content:space-between;align-items:center;padding:1rem 5%;background:rgba(10,25,47,0.95);position:fixed;width:100%;top:0;z-index:1000;}
+.navbar .logo {font-size:1.5rem;font-weight:700;color:var(--neon-green);}
+.navbar .nav-links {display:flex;gap:1.5rem;}
+.navbar .nav-links a {color:var(--white);text-decoration:none;font-weight:500;transition:0.3s;}
+.navbar .nav-links a:hover {color:var(--neon-green);text-shadow:0 0 5px var(--neon-green);}
+
+/* Hero */
+.hero {height:100vh;display:flex;justify-content:center;align-items:center;text-align:center;background:linear-gradient(135deg,#0a192f 0%,#001233 100%);padding:0 2rem;}
+.hero h1 {font-size:3rem;color:var(--neon-green);margin-bottom:1rem;text-shadow:0 0 10px #64ffda;}
+.hero p {font-size:1.2rem;max-width:600px;margin:0 auto 2rem;color:#cbd6f0;}
+.btn {padding:0.8rem 1.5rem;border-radius:10px;border:none;cursor:pointer;font-weight:600;transition:0.3s;}
+.btn-primary {background:var(--neon-green);color:#0a192f;margin-right:1rem;}
+.btn-primary:hover {box-shadow:0 0 15px var(--neon-green);}
+.btn-secondary {background:#112240;color:var(--neon-green);}
+.btn-secondary:hover {box-shadow:0 0 15px var(--neon-green);}
+
+/* Sections */
+.section {padding:8rem 5% 4rem 5%;}
+.section h2 {text-align:center;font-size:2rem;margin-bottom:2rem;color:var(--neon-green);}
+
+/* Glass Cards */
+.glass {background:rgba(10,25,47,0.6);backdrop-filter:blur(10px);border:1px solid rgba(100,255,218,0.3);border-radius:15px;padding:1.5rem;transition:0.3s;}
+.glass:hover {transform:translateY(-10px);box-shadow:0 0 20px var(--neon-green);}
+
+/* Grids */
+.projects-grid,.team-grid,.teachers-grid,.agenda-cards {display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2rem;}
+.contact-card {max-width:500px;margin:0 auto;}
+.contact-card input, .contact-card textarea {width:100%;margin-bottom:1rem;padding:0.8rem;border-radius:10px;border:none;outline:none;}
+.contact-card button {align-self:flex-start;}
+
+/* Footer */
+footer {text-align:center;padding:2rem;background:rgba(10,25,47,0.95);border-top:1px solid var(--neon-green);color:#cbd6f0;}
+
+/* Responsive */
+@media(max-width:768px){.navbar .nav-links{display:none;}}
+
+</style>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">TechLab 3ème Info</div>
+    <ul class="nav-links">
+      <li><a href="#home">Accueil</a></li>
+      <li><a href="#presentation">Présentation</a></li>
+      <li><a href="#projects">Projets</a></li>
+      <li><a href="#resources">Ressources</a></li>
+      <li><a href="#agenda">Agenda</a></li>
+      <li><a href="#team">Équipe</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <h1>Espace TechLab</h1>
+      <p>La plateforme officielle de la classe 3ème Informatique : Apprendre, Créer, Innover.</p>
+      <div class="hero-buttons">
+        <a href="#projects" class="btn btn-primary">Voir Projets</a>
+        <a href="#resources" class="btn btn-secondary">Ressources</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Présentation -->
+  <section id="presentation" class="section">
+    <h2>Présentation</h2>
+    <div class="presentation-card glass">
+      <p>Bienvenue dans le classe 3ème Informatique. Notre objectif est de développer les compétences en programmation, réseaux et technologie pour préparer nos élèves à l’innovation et aux projets collaboratifs.</p>
+      <ul>
+        <li>Année: 3ème Informatique</li>
+        <li>Nombre d'élèves: 10</li>
+        <li>Encadrants: admin de section.informatique.elhojej</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Projets / TechLab -->
+  <section id="projects" class="section">
+    <h2>Projets TechLab</h2>
+    <div class="projects-grid">
+      <div class="project-card glass">
+        <h3>Mini-site Web</h3>
+        <p>Projet de création d'un site officiel du classe.</p>
+      </div>
+      <div class="project-card glass">
+        <h3>Application Mobile</h3>
+        <p>Développement d'une app pour gérer l'agenda du classe.</p>
+      </div>
+      <div class="project-card glass">
+        <h3>Robot Programmable</h3>
+        <p>Projet en groupe pour programmer un robot éducatif.</p>
+      </div>
+      <div class="project-card glass">
+        <h3>Jeu Vidéo Simple</h3>
+        <p>Création d'un mini-jeu en Python pour apprendre la logique.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ressources -->
+  <section id="resources" class="section">
+    <h2>Ressources</h2>
+    <div class="resources-list glass">
+      <ul>
+        <li><a href="#">Cours HTML/CSS</a></li>
+        <li><a href="#">Exercices Python</a></li>
+        <li><a href="#">Tutoriels Réseaux</a></li>
+        <li><a href="TechLab3eme.pdf" download>📄 Télécharger le projet complet (PDF)</a></li>
+      </ul>
+    </div>
+    <button onclick="downloadPDF()" class="btn btn-primary">Générer PDF du Projet</button>
+  </section>
+
+  <!-- Agenda / Emploi du temps -->
+  <section id="agenda" class="section">
+    <h2>Agenda & Emploi du temps</h2>
+    <div class="agenda-cards">
+      <div class="agenda-card glass">
+        <h3>15 Novembre 2025</h3>
+        <p>Remise du projet Mini-site Web</p>
+      </div>
+      <div class="agenda-card glass">
+        <h3>22 Novembre 2025</h3>
+        <p>Compétition TechLab – Présentation des projets</p>
+      </div>
+      <div class="agenda-card glass">
+        <h3>30 Novembre 2025</h3>
+        <p>Examen pratique informatique</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Équipe / Tlamdha -->
+  <section id="team" class="section">
+    <h2>Équipe – Classe 3ème Info</h2>
+    <div class="team-grid">
+      <div class="team-card glass"><h3>Ahmed Nassrallah</h3></div>
+      <div class="team-card glass"><h3>Ahmed Amin Dahmani</h3></div>
+      <div class="team-card glass"><h3>Amen Allah Ben Ibrahim</h3></div>
+      <div class="team-card glass"><h3>Omayma L Hobi</h3></div>
+      <div class="team-card glass"><h3>Rawen Ezina</h3></div>
+      <div class="team-card glass"><h3>Ons Midassi</h3></div>
+      <div class="team-card glass"><h3>Kousay Waer</h3></div>
+      <div class="team-card glass"><h3>Naim Nahali</h3></div>
+      <div class="team-card glass"><h3>Anwar Elwaer</h3></div>
+      <div class="team-card glass"><h3>Ahmed Mhimida</h3></div>
+    </div>
+  </section>
+
+  <!-- Professeurs -->
+  <section id="teachers" class="section">
+    <h2>Professeurs</h2>
+    <div class="teachers-grid">
+      <div class="teacher-card glass"><h3>Aymen Garouch</h3><p>Algo & Programmation</p></div>
+      <div class="teacher-card glass"><h3>Lilya Elwaer</h3><p>STI</p></div>
+      <div class="teacher-card glass"><h3>Adel Mahjoub</h3><p>Physique</p></div>
+      <div class="teacher-card glass"><h3>Jamil Ajel</h3><p>Mathématiques</p></div>
+      <div class="teacher-card glass"><h3>Wafa SSad</h3><p>Histoire & Géographie</p></div>
+      <div class="teacher-card glass"><h3>Hawa E</h3><p>Autres matières</p></div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="section">
+    <h2>Contact</h2>
+    <div class="contact-card glass">
+      <form>
+        <input type="text" placeholder="Nom" required>
+        <input type="email" placeholder="Email" required>
+        <textarea placeholder="Message" required></textarea>
+        <button type="submit" class="btn btn-primary">Envoyer</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 – Espace TechLab | Classe 3ème Informatique – Lycée [amiret elhojej]</p>
+  </footer>
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Espace TechLab – 3ème Info</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<style>
+  /* Global */
+* {margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+:root {--dark-bg:#0a192f;--neon-green:#64ffda;--white:#fff;}
+body {background-color:var(--dark-bg);color:var(--white);scroll-behavior:smooth;}
+.navbar {display:flex;justify-content:space-between;align-items:center;padding:1rem 5%;background:rgba(10,25,47,0.95);position:fixed;width:100%;top:0;z-index:1000;}
+.navbar .logo {font-size:1.5rem;font-weight:700;color:var(--neon-green);}
+.navbar .nav-links {display:flex;gap:1.5rem;}
+.navbar .nav-links a {color:var(--white);text-decoration:none;font-weight:500;transition:0.3s;}
+.navbar .nav-links a:hover {color:var(--neon-green);text-shadow:0 0 5px var(--neon-green);}
+
+/* Hero */
+.hero {height:100vh;display:flex;justify-content:center;align-items:center;text-align:center;background:linear-gradient(135deg,#0a192f 0%,#001233 100%);padding:0 2rem;}
+.hero h1 {font-size:3rem;color:var(--neon-green);margin-bottom:1rem;text-shadow:0 0 10px #64ffda;}
+.hero p {font-size:1.2rem;max-width:600px;margin:0 auto 2rem;color:#cbd6f0;}
+.btn {padding:0.8rem 1.5rem;border-radius:10px;border:none;cursor:pointer;font-weight:600;transition:0.3s;}
+.btn-primary {background:var(--neon-green);color:#0a192f;margin-right:1rem;}
+.btn-primary:hover {box-shadow:0 0 15px var(--neon-green);}
+.btn-secondary {background:#112240;color:var(--neon-green);}
+.btn-secondary:hover {box-shadow:0 0 15px var(--neon-green);}
+
+/* Sections */
+.section {padding:8rem 5% 4rem 5%;}
+.section h2 {text-align:center;font-size:2rem;margin-bottom:2rem;color:var(--neon-green);}
+
+/* Glass Cards */
+.glass {background:rgba(10,25,47,0.6);backdrop-filter:blur(10px);border:1px solid rgba(100,255,218,0.3);border-radius:15px;padding:1.5rem;transition:0.3s;}
+.glass:hover {transform:translateY(-10px);box-shadow:0 0 20px var(--neon-green);}
+
+/* Grids */
+.projects-grid,.team-grid,.teachers-grid,.agenda-cards {display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2rem;}
+.contact-card {max-width:500px;margin:0 auto;}
+.contact-card input, .contact-card textarea {width:100%;margin-bottom:1rem;padding:0.8rem;border-radius:10px;border:none;outline:none;}
+.contact-card button {align-self:flex-start;}
+
+/* Footer */
+footer {text-align:center;padding:2rem;background:rgba(10,25,47,0.95);border-top:1px solid var(--neon-green);color:#cbd6f0;}
+
+/* Responsive */
+@media(max-width:768px){.navbar .nav-links{display:none;}}
+
+</style>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">TechLab 3ème Info</div>
+    <ul class="nav-links">
+      <li><a href="#home">Accueil</a></li>
+      <li><a href="#presentation">Présentation</a></li>
+      <li><a href="#projects">Projets</a></li>
+      <li><a href="#resources">Ressources</a></li>
+      <li><a href="#agenda">Agenda</a></li>
+      <li><a href="#team">Équipe</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <h1>Espace TechLab</h1>
+      <p>La plateforme officielle de la classe 3ème Informatique : Apprendre, Créer, Innover.</p>
+      <div class="hero-buttons">
+        <a href="#projects" class="btn btn-primary">Voir Projets</a>
+        <a href="#resources" class="btn btn-secondary">Ressources</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Présentation -->
+  <section id="presentation" class="section">
+    <h2>Présentation</h2>
+    <div class="presentation-card glass">
+      <p>Bienvenue dans le classe 3ème Informatique. Notre objectif est de développer les compétences en programmation, réseaux et technologie pour préparer nos élèves à l’innovation et aux projets collaboratifs.</p>
+      <ul>
+        <li>Année: 3ème Informatique</li>
+        <li>Nombre d'élèves: 10</li>
+        <li>Encadrants: admin de section.informatique.elhojej</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Projets / TechLab -->
+  <section id="projects" class="section">
+    <h2>Projets TechLab</h2>
+    <div class="projects-grid">
+      <div class="project-card glass">
+        <h3>Mini-site Web</h3>
+        <p>Projet de création d'un site officiel du classe.</p>
+      </div>
+      <div class="project-card glass">
+        <h3>Application Mobile</h3>
+        <p>Développement d'une app pour gérer l'agenda du classe.</p>
+      </div>
+      <div class="project-card glass">
+        <h3>Robot Programmable</h3>
+        <p>Projet en groupe pour programmer un robot éducatif.</p>
+      </div>
+      <div class="project-card glass">
+        <h3>Jeu Vidéo Simple</h3>
+        <p>Création d'un mini-jeu en Python pour apprendre la logique.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ressources -->
+  <section id="resources" class="section">
+    <h2>Ressources</h2>
+    <div class="resources-list glass">
+      <ul>
+        <li><a href="#">Cours HTML/CSS</a></li>
+        <li><a href="#">Exercices Python</a></li>
+        <li><a href="#">Tutoriels Réseaux</a></li>
+        <li><a href="TechLab3eme.pdf" download>📄 Télécharger le projet complet (PDF)</a></li>
+      </ul>
+    </div>
+    <button onclick="downloadPDF()" class="btn btn-primary">Générer PDF du Projet</button>
+  </section>
+
+  <!-- Agenda / Emploi du temps -->
+  <section id="agenda" class="section">
+    <h2>Agenda & Emploi du temps</h2>
+    <div class="agenda-cards">
+      <div class="agenda-card glass">
+        <h3>15 Novembre 2025</h3>
+        <p>Remise du projet Mini-site Web</p>
+      </div>
+      <div class="agenda-card glass">
+        <h3>22 Novembre 2025</h3>
+        <p>Compétition TechLab – Présentation des projets</p>
+      </div>
+      <div class="agenda-card glass">
+        <h3>30 Novembre 2025</h3>
+        <p>Examen pratique informatique</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Équipe / Tlamdha -->
+  <section id="team" class="section">
+    <h2>Équipe – Classe 3ème Info</h2>
+    <div class="team-grid">
+      <div class="team-card glass"><h3>Ahmed Nassrallah</h3></div>
+      <div class="team-card glass"><h3>Ahmed Amin Dahmani</h3></div>
+      <div class="team-card glass"><h3>Amen Allah Ben Ibrahim</h3></div>
+      <div class="team-card glass"><h3>Omayma L Hobi</h3></div>
+      <div class="team-card glass"><h3>Rawen Ezina</h3></div>
+      <div class="team-card glass"><h3>Ons Midassi</h3></div>
+      <div class="team-card glass"><h3>Kousay Waer</h3></div>
+      <div class="team-card glass"><h3>Naim Nahali</h3></div>
+      <div class="team-card glass"><h3>Anwar Elwaer</h3></div>
+      <div class="team-card glass"><h3>Ahmed Mhimida</h3></div>
+    </div>
+  </section>
+
+  <!-- Professeurs -->
+  <section id="teachers" class="section">
+    <h2>Professeurs</h2>
+    <div class="teachers-grid">
+      <div class="teacher-card glass"><h3>Aymen Garouch</h3><p>Algo & Programmation</p></div>
+      <div class="teacher-card glass"><h3>Lilya Elwaer</h3><p>STI</p></div>
+      <div class="teacher-card glass"><h3>Adel Mahjoub</h3><p>Physique</p></div>
+      <div class="teacher-card glass"><h3>Jamil Ajel</h3><p>Mathématiques</p></div>
+      <div class="teacher-card glass"><h3>Wafa SSad</h3><p>Histoire & Géographie</p></div>
+      <div class="teacher-card glass"><h3>Hawa E</h3><p>Autres matières</p></div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="section">
+    <h2>Contact</h2>
+    <div class="contact-card glass">
+      <form>
+        <input type="text" placeholder="Nom" required>
+        <input type="email" placeholder="Email" required>
+        <textarea placeholder="Message" required></textarea>
+        <button type="submit" class="btn btn-primary">Envoyer</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 – Espace TechLab | Classe 3ème Informatique – Lycée [amiret elhojej]</p>
+  </footer>
+
+<script>
+  function downloadPDF() {
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
+    doc.text("TechLab – 3ème Info", 20, 20);
+    doc.text("Projet complet de la classe.", 20, 30);
+    doc.save("TechLab3eme.pdf");
+  }
+</script>
+
+</body>
+</html>
+
+
+</body>
+</html>
